@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Lab-06</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <header>Salmon Cookie Stand
+        <img src="salmon.png" align='middle'/>
+        Salmon Cookie Stand
+    </header>
+    <table id="salmonStore"></table>
+    <!-- From Demo -->
+    <form>
+      <fieldset>
+        <legend>Add a new store to the table</legend>
+        <label for="locName">Location Name</label>
+        <input name="LocName" type="text"></input>
+        <label for="min">Minimum Customers Per Hour</label>
+        <input name="min" type="number"></input>
+        <p></p>
+        <label for="max">Maxmimum Customers Per Hour</label>
+        <input id="maxBox" name="max" type="number"></input>
+        <label for="avg">Average Cookies Sold Per Hour</label>
+        <input name="avg" type="text"></input>
+        <button id="button">Add Store</button>
+      </fieldset>
+    </form>
+    <!-- From Demo -->
+    <form>
+
+      <fieldset>
+      <p>
+        <p>
+          <legend>
+            New Store Input
+          </legend>
+        </p>
+      <label id="newStoreLocation">
+        New Store Location:
+        <input type="text" name="newStore" size="30" maxlength="100"/>
+        <input type="submit" name="Add" value="Add"/>
+      </label>
+      <br />
+        <!-- <label id="hours">
+          New Store Average Sale:
+          <input type="text" name="hours" size="30" maxlength="100"/>
+          <input type="submit" name="Build Row" value="Build Row"/>
+        </label> -->
+      <br />
+    </p>
+      </fieldset>
+
+    </form>
+    <form>
+      <p>
+        <textarea name="User Reviews" cols="30" rows="10">
+I made a text box!
+        </textarea>
+      </p>
+      <fieldset>
+      <p>
+        <p>
+          <legend>
+            Details
+          </legend>
+        </p>
+      <label id="name">
+        Name:
+        <input type="text" name="name" size="30" maxlength="100">
+      </label>
+      <br />
+        <label id="email">
+          Email:
+          <input type="email" name="email" size="30" maxlength="100">
+        </label>
+      <br />
+      <p>
+        <fieldset>
+          <legend>
+            Review:
+          </legend>
+      </p>
+          <p>
+            <label for="hear-about">
+              How did you hear about us?
+            </label>
+            <select name="referrer" id="hear-about">
+              <option value="google">Google</option>
+              <option value="friend">Friend</option>
+              <option value="advert">Advert</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+      </p>
+      <p>
+        Would you visit us again?
+        <br />
+        <label>
+          <input type="radio" name="rating" value="yes"/>
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="rating" value="no"/>
+          No
+        </label>
+        <label>
+          <input type="radio" name="rating" value="maybe"/>
+          Maybe
+        </label>
+      </p>
+        <label>
+          <input type="checkbox" name="subscribe" checked="checked"/>
+          Sign me up for email updates
+        </label>
+      </fieldset>
+    </form>
+    <!-- <header2 id='averageCookiesSoldPerHour'></header2>
+    <h1 id='locationName'></h1>
+    <h2 id='maxCustomersPerHour'></h2>
+    <h3 id='minCustomersPerHour'><h3>
+    <h4 id='customersThisHour'></h4>
+    <h5 id='cookiesEachHour'></h5>
+
+    <h6 id='locationName2'></h6>
+    <h7 id='maxCustomersPerHour2'></h7>
+    <h8 id='minCustomersPerHour2'></h8>
+    <h9 id='customersThisHour2'></h9>
+    <h10 id='cookiesEachHour2'></h10>
+
+    <h11 id='locationName3'></h11>
+    <h12 id='maxCustomersPerHour3'></h12>
+    <h13 id='minCustomersPerHour3'></h13>
+    <h14 id='customersThisHour3'></h14>
+    <h15 id='cookiesEachHour3'></h15>
+
+    <h16 id='locationName4'></h16>
+    <h17 id='maxCustomersPerHour4'></h17>
+    <h18 id='minCustomersPerHour4'></h18>
+    <h19 id='customersThisHour4'></h19>
+    <h20 id='cookiesEachHour4'></h20>
+
+    <h21 id='locationName5'></h21>
+    <h22 id='maxCustomersPerHour5'></h22>
+    <h23 id='minCustomersPerHour5'></h23>
+    <h24 id='customersThisHour5'></h24>
+    <h25 id='cookiesEachHour5'></h25> -->
+    <script src="app.js"></script>
+  </body>
+</html>

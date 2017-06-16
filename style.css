@@ -1,0 +1,104 @@
+* {
+  /*background-color: white;*/
+  font-size: 25px;
+  width: auto;
+  height: 100;
+  /*outline-style: dashed;/*for block visual purposes*/*/
+}
+html {
+  background-image: url(/home/aaron/codefellows/201d23/week2/day-07/Lab-07-day-07/Dollarphotoclub_57954146.jpg);
+}
+
+#maxBox {
+
+}
+
+img {
+padding-left: 50px;
+padding-right: 50px;
+  /*width: 50%;*/
+  outline-style: solid;
+  border-radius: 30px;
+}
+
+header {
+  padding-left: 5%;
+  background-color: salmon;
+  border-radius: 30px;
+  color: blue;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 40px;
+}
+body {
+
+}
+
+th {
+background-color: salmon;
+}
+
+tr {
+  background-color: #78c7ff;
+}
+
+#salmonStore {
+  margin-left: 23%;
+  margin-top: 2%;
+  outline-style: solid;
+  outline-color: blue;
+  background-color: transparent;
+}
+
+fieldset {
+  border-radius: 30px;
+  color: blue;
+  background-color: salmon;
+}
+
+label {
+  color:black;
+}
+
+textarea {
+  background-color: salmon;
+  outline-style: solid;
+  /*outline-color: blue;*/
+}
+
+legend {
+  outline-style: double;
+  border-radius: 30px;
+  outline-color: black;
+}
+
+#nameAndEmail {
+}
+
+#name {
+
+}
+
+#email {
+
+}
+
+/*h1 {
+  color: pink;
+}
+
+h6 {
+  color: orange;
+}
+
+h11 {
+  color: green;
+}
+
+h16 {
+  color: blue;
+}
+
+h21 {
+  color: purple;
+}*/

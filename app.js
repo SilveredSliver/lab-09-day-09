@@ -146,47 +146,47 @@ function checkNewStore() {
 // }
 
 //for buttons    handleForm handler function
-function handleEvent(event) {
-  event.preventDefault();
-var theForm = document.createElement('td');
+// function handleEvent(event) {
+//   event.preventDefault();
+// var theForm = document.createElement('td');
+//
+// function handleForm(event) {
+//   event.preventDefault();
+//   console.log(event);
+//   var locationN = event.target.locName.value;//make all 4 console.log() into variables
+//   console.log('min', parseInt(event.target.min.value));
+//   console.log('max', parseInt(event.target.max.value));
+//   console.log('avg', parseFloat(event.target.avg.value));
+//
+// for (va i; i < CookieStand.all.length; i++) {
+//   if(loc === CookieStand.all[i].locationName) {
+//     CookieStand.all[i].minCustomersPerHour = min;
+//     CookieStand.all[i].maxCustomersPerHour = max;
+//     CookieStand.all[i].avgCookiesPerSale = avg;
+//     CookieStand.all[i].calculateCustomersEachHour();
+//     CookieStand.all[i].calcCookiesEachHour();
+//     CookieStand.all[i].cookiesEachHour = [];
+//
+//     return;
+//   }
+//
+// }
+// if(!storeLocations || !avgCookiesPerSale || !minCustomersPerHour || !maxCustomersPerHour) {
+//   return 'All fields must be filled';
+// }//a bang statement to prevent allowance of empty field submits from adding a new store feature
 
-function handleForm(event) {
-  event.preventDefault();
-  console.log(event);
-  var locationN = event.target.locName.value;//make all 4 console.log() into variables
-  console.log('min', parseInt(event.target.min.value));
-  console.log('max', parseInt(event.target.max.value));
-  console.log('avg', parseFloat(event.target.avg.value));
 
-for (va i; i < CookieStand.all.length; i++) {
-  if(loc === CookieStand.all[i].locationName) {
-    CookieStand.all[i].minCustomersPerHour = min;
-    CookieStand.all[i].maxCustomersPerHour = max;
-    CookieStand.all[i].avgCookiesPerSale = avg;
-    CookieStand.all[i].calculateCustomersEachHour();
-    CookieStand.all[i].calcCookiesEachHour();
-    CookieStand.all[i].cookiesEachHour = [];
+  // var newStore = new CookieStand(loc, max, min, avg);
+  //
+  // event.target.locName.value = null;//making values to clear the input after another button is pressed
+  // event.target.min.value = null;
+  // event.target.max.value = null;
+  // event.target.avg.value = null;
 
-    return;
-  }
-  
-  if(!storeLocations || !avgCookiesPerSale || !minCustomersPerHour || !maxCustomersPerHour) {
-    return 'All fields must be filled';
-  };//a bang statement to prevent allowance of empty field submits from adding a new store feature
-}
-
-
-  var newStore = new CookieStand(loc, max, min, avg);
-
-  event.target.locName.value = null;//making values to clear the input after another button is pressed
-  event.target.min.value = null;
-  event.target.max.value = null;
-  event.target.avg.value = null;
-
-}
-renderTable();
-theForm.addEventListener('submit', handleForm);
-}
+//}
+// renderTable();
+// theForm.addEventListener('submit', handleForm);
+// }
 
 //End Demo
 

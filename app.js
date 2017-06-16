@@ -41,6 +41,10 @@ function Store(locationName, numHours) {
 function makeHeader() {
   var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM'];
   var trEl = document.createElement('tr');
+  //makeElement('th', 'Location', trEl);
+  //for (var c = 0; 0 < hours.length, c++) {
+  //makeElement('th', this.hours, trEl);
+  //}
   var thEl = document.createElement('th');//creates the header row
   thEl.textContent = 'Location';
   trEl.appendChild(thEl);
@@ -56,6 +60,10 @@ storeTable.appendChild(trEl);
 
 Store.prototype.render = function() {//creates the rest of the rows
   var trEl = document.createElement('tr');
+  //makeElement('td',this.storeLocation, trEl);
+  //for (var i = 0; 0 < hours.length; i++) {
+  //makeElement('td', this.storeHours, trEl);
+  //}
   var tdEl = document.createElement('td');
   tdEl.textContent = this.locationName;
   trEl.appendChild(tdEl);
@@ -158,9 +166,13 @@ for (va i; i < CookieStand.all.length; i++) {
     CookieStand.all[i].calculateCustomersEachHour();
     CookieStand.all[i].calcCookiesEachHour();
     CookieStand.all[i].cookiesEachHour = [];
-    
+
     return;
   }
+  
+  if(!storeLocations || !avgCookiesPerSale || !minCustomersPerHour || !maxCustomersPerHour) {
+    return 'All fields must be filled';
+  };//a bang statement to prevent allowance of empty field submits from adding a new store feature
 }
 
 

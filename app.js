@@ -25,21 +25,28 @@
 
 var allStores = [];
 var storeTable = document.getElementById('salmonStore');
-makeHeader();
 
-function Store(locationName, numHours) {
+function Store(locationName, numHours, hourlyMinCustomers, hourlyMaxCustomers, avgCookiesPerSale) {
+  this.hourlyMinCustomers = hourlyMinCustomers;
+  this.hourlyMaxCustomers = hourlyMaxCustomers;
+  this.avgCookiesPerSale = avgCookiesPerSale;
   this.locationName = locationName;
-  allStores.push(this);
+  var dailytotalCookiesSold = 0;
   var cookiesSold = [];
   for( var i = 0; i < numHours; i++){
-    cookiesSold.push(Math.floor(Math.random() * (347 - 18 + 1)) + 18)
+    var numCustomersPerHour = (Math.floor(Math.random() * (this.hourlyMaxCustomers - this.hourlyMinCustomers + 1)) + this.hourlyMinCustomers);
+    var numCookiesSoldThisHour = Math.floor(numCustomersPerHour * this.avgCookiesPerSale)
+    dailytotalCookiesSold += numCookiesSoldThisHour;
+    cookiesSold.push(numCookiesSoldThisHour);
   }
-  this.storeHours = cookiesSold;
+  this.dailytotalCookiesSold = dailytotalCookiesSold;
+  this.randomCookiesCell = cookiesSold;
+  allStores.push(this);
 }
 
 //header function
 function makeHeader() {
-  var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM'];
+  var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM', 'Daily Total Cookies'];
   var trEl = document.createElement('tr');
   //makeElement('th', 'Location', trEl);
   //for (var c = 0; 0 < hours.length, c++) {
@@ -58,6 +65,33 @@ function makeHeader() {
 storeTable.appendChild(trEl);
 }
 
+//Footer Function
+function makeFooter() {
+  var grandTotalSales = 0;
+  var hourlyCookieTotals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  for (var i = 0; i < allStores.length; i++) {
+    var currentStoreRow = allStores[i];
+    for (var j = 0; j < currentStoreRow.randomCookiesCell.length; j++) {
+      hourlyCookieTotals[j] += currentStoreRow.randomCookiesCell[j];
+      grandTotalSales += currentStoreRow.randomCookiesCell[j];
+    }
+  }
+  var trEl = document.createElement('tr');
+  var tfEl = document.createElement('tf');//creates the footer row
+  tfEl.textContent = 'Hourly Totals';
+  trEl.appendChild(tfEl);
+
+  for (var j = 0; j < hourlyCookieTotals.length; j++) {
+    tfEl = document.createElement('td');//makes the middle section of the footer row of the table
+    tfEl.textContent = hourlyCookieTotals[j];
+    trEl.appendChild(tfEl);
+  }
+  tfEl = document.createElement('td');//makes the middle section of the footer row of the table
+  tfEl.textContent = grandTotalSales + ' (Grand Total)';
+  trEl.appendChild(tfEl);
+  storeTable.appendChild(trEl);
+}
+
 Store.prototype.render = function() {//creates the rest of the rows
   var trEl = document.createElement('tr');
   //makeElement('td',this.storeLocation, trEl);
@@ -73,20 +107,36 @@ Store.prototype.render = function() {//creates the rest of the rows
   // tdEl.textContent = this.locationName;
   // trEl.appendChild(tdEl);
 
-  for (var j = 0; j < this.storeHours.length; j++){
+  for (var j = 0; j < this.randomCookiesCell.length; j++){
   tdEl = document.createElement('td');
-  tdEl.textContent = this.storeHours[j];
+  tdEl.textContent = this.randomCookiesCell[j];
   trEl.appendChild(tdEl);
-
-    storeTable.appendChild(trEl);
+  storeTable.appendChild(trEl);
   }
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.dailytotalCookiesSold;
+  trEl.appendChild(tdEl);
 }
 
-new Store('Pike Place Market',14);
-new Store('SeaTac Airport',14);
-new Store('Seattle Center',14);
-new Store('Capitol Hill',14);
-new Store('Alki',14);
+
+// sumOverStores = function()
+// {
+//   var cookiesEachHour = [];
+//   for(j = 0; j )
+//   for(i = 0; i < allStores.length; i++){
+//     for(j = 0; j < cookiesEachHour.length; j++){
+//       cookiesEachHour[j] += allStores[i].storeHours[j]
+//     }
+//   }
+//   return cookiesEachHour
+// }
+
+//'punch-cards put into the function machine and the result is the table generated on the webpage'
+new Store('Pike Place Market', 14, 23, 65, 6.3);
+new Store('SeaTac Airport', 14, 3, 24, 1.2);
+new Store('Seattle Center', 14, 11, 38, 3.7);
+new Store('Capitol Hill', 14, 20, 38, 2.3);
+new Store('Alki', 14, 2, 16, 4.6);
 
 //attempting new store row on submit click
 var elStore = document.getElementById('newStore');
@@ -103,9 +153,9 @@ function checkNewStore() {
       tdEl.textContent = this.locationName;
       trEl.appendChild(tdEl);
 
-      for (var j = 0; j < this.storeHours.length; j++){
+      for (var j = 0; j < this.randomCookiesCell.length; j++){
       tdEl = document.createElement('td');
-      tdEl.textContent = this.storeHours[j];
+      tdEl.textContent = this.randomCookiesCell[j];
       trEl.appendChild(tdEl);
 
         storeTable.appendChild(trEl);
@@ -197,8 +247,9 @@ function renderAllStores() {
     allStores[i].render();
   }
 }
+makeHeader();
 renderAllStores();
-
+makeFooter();
 
 // var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM'];
 //

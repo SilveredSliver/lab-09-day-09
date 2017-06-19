@@ -6,30 +6,38 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
-    <header>Salmon Cookie Stand
-        <img src="salmon.png" align='middle'/>
-        Salmon Cookie Stand
+    <header>
+        <img id="salmon" src="salmon.png"/>
+        <span>Salmon Cookie Stand</span>
+        <img id="chinook" src="chinook.jpg"/>
     </header>
     <table id="salmonStore"></table>
-    <!-- From Demo -->
     <form>
       <fieldset>
         <p>
           <legend>Add a new store to the table</legend>
         </p>
-        <label for="locName">Location Name</label>
-        <input name="LocName" type="text"></input>
-        <label for="min">Minimum Customers Per Hour</label>
-        <input name="min" type="number"></input>
+        <label class="newStoreInput" for="locName">Location Name:</label>
+        <input class="newStoreInput2" name="locNameInput" type="text"></input>
+
+        <label class="newStoreInput" for="min">Minimum Customers Per Hour:</label>
+        <input class="newStoreInput2" name="minInput" type="number"></input>
         <p></p>
-        <label for="max">Maxmimum Customers Per Hour</label>
-        <input id="maxBox" name="max" type="number"></input>
-        <label for="avg">Average Cookies Sold Per Customer</label>
-        <input name="avg" type="number"></input>
-        <button id="newStoreButton">Add New Store</button>
+        <label class="newStoreInput" for="max">Maxmimum Customers Per Hour:</label>
+        <input class="newStoreInput2" name="maxInput" type="number"></input>
+
+        <label class="newStoreInput" for="avg">Average Cookies Sold Per Customer:</label>
+        <input class="newStoreInput2" name="avgInput" type="number"></input>
+
+        <button id="newStoreButton">Add New Store
+        <img id="fish" src="fish.jpg"/>
+        </button>
       </fieldset>
+      <img id="cutter" src="cutter.jpeg"/>
+      <img id="frosted-cookie" src="frosted-cookie.jpg"/>
+      <img id="shirt" src="shirt.jpg"/>
     </form>
-    <!-- From Demo -->
+
     <form>
       <p>
         <textarea name="User Reviews" cols="30" rows="10">
@@ -42,6 +50,7 @@ I made a text box!
           <legend>
             Details
           </legend>
+          <img id="family" src="family.jpg"/>
         </p>
       <label id="name">
         Name:

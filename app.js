@@ -1,28 +1,5 @@
 'use strict'
 
-// var maddy = {
-//   nickname: 'Maddy',
-//   givenName: 'Madeline',
-//   personality: ['fun', 'helpful', 'awesome'],
-//   greeting: function() {
-//     console.log('Hi,  my name is ' + this.givenName + ' but you can call me ' + this.nickname);
-//   }
-// };
-// //Object Literal Notation -- is a form of making objects^^^^^^^^
-//
-// maddy.nickname;//dot notation
-// maddy['nickname'];//bracket notation
-
-
-// var seagullCount = [2, 38, 3 , 324, 4, 05];
-//
-// for (var i = 0; 1 < seagullCount.length; i++) {
-//   //1   Create the new Element
-//   //2   Give the element some content
-//   //3   Append the element to the appripriate place in the document
-//   var LiEl = document.createElement('li')
-// }
-
 var allStores = [];
 var storeTable = document.getElementById('salmonStore');
 
@@ -48,10 +25,7 @@ function Store(locationName, numHours, hourlyMinCustomers, hourlyMaxCustomers, a
 function makeHeader() {
   var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM', 'Daily Total Cookies'];
   var trEl = document.createElement('tr');
-  //makeElement('th', 'Location', trEl);
-  //for (var c = 0; 0 < hours.length, c++) {
-  //makeElement('th', this.hours, trEl);
-  //}
+
   var thEl = document.createElement('th');//creates the header row
   thEl.textContent = 'Location';
   trEl.appendChild(thEl);
@@ -94,18 +68,11 @@ function makeFooter() {
 
 Store.prototype.render = function() {//creates the rest of the rows
   var trEl = document.createElement('tr');
-  //makeElement('td',this.storeLocation, trEl);
-  //for (var i = 0; 0 < hours.length; i++) {
-  //makeElement('td', this.storeHours, trEl);
-  //}
+
   var tdEl = document.createElement('td');
   tdEl.textContent = this.locationName;
   trEl.appendChild(tdEl);
 
-  // var trEl = document.createElement('tr');
-  // var tdEl = document.createElement('td');
-  // tdEl.textContent = this.locationName;
-  // trEl.appendChild(tdEl);
 
   for (var j = 0; j < this.randomCookiesCell.length; j++){
   tdEl = document.createElement('td');
@@ -119,18 +86,6 @@ Store.prototype.render = function() {//creates the rest of the rows
 }
 
 
-// sumOverStores = function()
-// {
-//   var cookiesEachHour = [];
-//   for(j = 0; j )
-//   for(i = 0; i < allStores.length; i++){
-//     for(j = 0; j < cookiesEachHour.length; j++){
-//       cookiesEachHour[j] += allStores[i].storeHours[j]
-//     }
-//   }
-//   return cookiesEachHour
-// }
-
 //'punch-cards put into the function machine and the result is the table generated on the webpage'
 new Store('Pike Place Market', 14, 23, 65, 6.3);
 new Store('SeaTac Airport', 14, 3, 24, 1.2);
@@ -138,106 +93,49 @@ new Store('Seattle Center', 14, 11, 38, 3.7);
 new Store('Capitol Hill', 14, 20, 38, 2.3);
 new Store('Alki', 14, 2, 16, 4.6);
 
-//attempting new store row on submit click
-var elStore = document.getElementById('newStore');
-function checkNewStore() {
-  if (elStore.value.length > 0 && elStore.value.length < 100) {
-    Store.prototype.render = function() {//creates the rest of the rows
-      var trEl = document.createElement('tr');
-      var tdEl = document.createElement('td');
-      tdEl.textContent = this.locationName;
-      trEl.appendChild(tdEl);
+// for buttons      handleForm handler function
+function handleEvent(event) {
+  event.preventDefault();
+  var theForm = document.createElement('td');
 
-      var trEl = document.createElement('tr');
-      var tdEl = document.createElement('td');
-      tdEl.textContent = this.locationName;
-      trEl.appendChild(tdEl);
+  function handleForm(event) {
+    // event.preventDefault();
+    console.log(event);
+    var newLocation = event.target.form.elements.locNameInput.value;//make all 4 console.log() into variables
+    var avgCookiesPerSale = parseFloat(event.target.form.elements.avgInput.value);
+    var minCustomersPerHour = parseInt(event.target.form.elements.minInput.value);
+    var maxCustomersPerHour = parseInt(event.target.form.elements.maxInput.value);
+    console.log('locName', event.target.form.elements.locNameInput.vale);
+    console.log('min', parseInt(event.target.form.elements.minInput.value));
+    console.log('max', parseInt(event.target.form.elements.maxInput.value));
+    console.log('avg', parseFloat(event.target.form.elements.avgInput.value));
 
-      for (var j = 0; j < this.randomCookiesCell.length; j++){
-      tdEl = document.createElement('td');
-      tdEl.textContent = this.randomCookiesCell[j];
-      trEl.appendChild(tdEl);
 
-        storeTable.appendChild(trEl);
-      }
-    }
+    if(!newLocation || !avgCookiesPerSale || !minCustomersPerHour || !maxCustomersPerHour) {
+      return null;
+    }//a bang statement to prevent allowance of empty field submits from adding a new store feature
+    event.target.form.elements.locNameInput.value = null;//making values to clear the input after another button is pressed
+    event.target.form.elements.minInput.value = null;
+    event.target.form.elements.maxInput.value = null;
+    event.target.form.elements.avgInput.value = null;
+
+    return newestStore = new Store(newLocation, 14, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerSale);
   }
+  theForm.addEventListener('submit', handleForm);
+  var newestStore = handleForm(event);
+  if (!newestStore) {
+    alert ('All store information fields must have input!');
+  } else {
+    var deleteOldTotalsRow = document.getElementById('salmonStore');
+    deleteOldTotalsRow.deleteRow(deleteOldTotalsRow.rows.length -1);
+    newestStore.render();
+    makeFooter();
+  }
+
 }
-//end of attempt
 
-
-//FROM DEMO
-// CookieStand.prototype.calCustomersEachHour = function {
-//
-// };
-// CookieStand.prototype.calCookiesEachHour = function {
-//
-// };
-//
-// CookieStand.prototype.calAvgSalesEachHour = function {
-//
-// };
-// CookieStand.all = [];
-// new CookieStand('Pike Plae Market', 0, 0, 0, 'Pike');
-// new CookieStand('SeaTac Airport');
-// //making total of totals and total hourly sales
-// var totalOfTotals = 0;
-// var hourlyTotal = 0;
-// for (var i = 0; i < hours.length; i++) {//hours IS NOT DEFINED YET
-//   hourlyTotal = 0;
-//   for (var j = 0; j < CookieStand.all.length; j++) {
-//     hourlyTotal += CookieStand.all[j].cookiesEachHour[i];
-// console.log('hourly total', hourlyTotal);
-//     totalOfTotals += CookieStand.all[j].cookiesEachHour[i];
-//   }
-//   thEl = document.createElement('th');
-//   thEl.textContent = hourlyTotal;
-//   trEl.appendChild(thEl);
-// }
-
-//for buttons    handleForm handler function
-// function handleEvent(event) {
-//   event.preventDefault();
-// var theForm = document.createElement('td');
-//
-// function handleForm(event) {
-//   event.preventDefault();
-//   console.log(event);
-//   var locationN = event.target.locName.value;//make all 4 console.log() into variables
-//   console.log('min', parseInt(event.target.min.value));
-//   console.log('max', parseInt(event.target.max.value));
-//   console.log('avg', parseFloat(event.target.avg.value));
-//
-// for (va i; i < CookieStand.all.length; i++) {
-//   if(loc === CookieStand.all[i].locationName) {
-//     CookieStand.all[i].minCustomersPerHour = min;
-//     CookieStand.all[i].maxCustomersPerHour = max;
-//     CookieStand.all[i].avgCookiesPerSale = avg;
-//     CookieStand.all[i].calculateCustomersEachHour();
-//     CookieStand.all[i].calcCookiesEachHour();
-//     CookieStand.all[i].cookiesEachHour = [];
-//
-//     return;
-//   }
-//
-// }
-// if(!storeLocations || !avgCookiesPerSale || !minCustomersPerHour || !maxCustomersPerHour) {
-//   return 'All fields must be filled';
-// }//a bang statement to prevent allowance of empty field submits from adding a new store feature
-
-
-  // var newStore = new CookieStand(loc, max, min, avg);
-  //
-  // event.target.locName.value = null;//making values to clear the input after another button is pressed
-  // event.target.min.value = null;
-  // event.target.max.value = null;
-  // event.target.avg.value = null;
-
-//}
-// renderTable();
-// theForm.addEventListener('submit', handleForm);
-// }
-
+var buttonForAddNewStore = document.getElementById('newStoreButton');
+buttonForAddNewStore.addEventListener('click', handleEvent);
 //End Demo
 
 
@@ -250,6 +148,9 @@ function renderAllStores() {
 makeHeader();
 renderAllStores();
 makeFooter();
+
+
+//OLD CODE FROM DAY-06!!!!!!
 
 // var storeHours = ['6-AM', '7-AM', '8-AM', '9-AM', '10-AM','11-AM','12-PM','1-PM','2-PM','3-PM','4-PM','5-PM','6-PM','7-PM'];
 //

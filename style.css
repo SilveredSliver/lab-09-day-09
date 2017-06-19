@@ -9,29 +9,28 @@ html {
   background-image: url(/home/aaron/codefellows/201d23/week2/day-07/Lab-07-day-07/Dollarphotoclub_57954146.jpg);
 }
 
-#maxBox {
-
+#salmon {
+  height: 200px;
 }
 
-img {
-padding-left: 50px;
-padding-right: 50px;
-  /*width: 50%;*/
-  outline-style: solid;
+span {
+  padding: 20px;
   border-radius: 30px;
+  background-color: salmon;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 80px;
+  margin-left: 1%;
+}
+
+#chinook {
+  height: 200px;
+  margin-left: 3%;
 }
 
 header {
-  padding-left: 5%;
-  background-color: salmon;
+  /*background-color: salmon;*/
   border-radius: 30px;
-  color: blue;
-  font-style: oblique;
-  font-weight: bold;
-  font-size: 40px;
-}
-body {
-
 }
 
 th {
@@ -43,11 +42,12 @@ tr {
 }
 
 #salmonStore {
-  margin-left: 18%;
+  margin-left: 20%;
   margin-top: 2%;
   outline-style: solid;
   outline-color: blue;
   background-color: transparent;
+  margin-bottom: 2%;
 }
 
 fieldset {
@@ -56,14 +56,67 @@ fieldset {
   background-color: salmon;
 }
 
-label {
+#fish {
+  height: 80px;
+  border-radius: 20px;
+}
+
+.newStoreInput {
+  outline-style: solid;
+  outline-color: black;
   color:black;
+}
+
+.newStoreInput2 {
+  margin-left: 10px;
+  margin-right: 10%;
+  outline-style: double;
+}
+
+#newStoreButton {
+  float: right;
+  border-radius: 10px;
+  background-color: white;
 }
 
 textarea {
   background-color: salmon;
+}
+
+#cutter {
+  margin-top: 30px;
+  margin-right: 70px;
+  border-radius: 10px;
+  height: 300px;
+  float: right;
   outline-style: solid;
-  /*outline-color: blue;*/
+  outline-offset: 10px;
+  outline-width: thick;
+  outline-color: blue;
+}
+
+#frosted-cookie {
+  margin-top: 30px;
+  margin-right: 70px;
+  border-radius: 10px;
+  height: 300px;
+  float: right;
+  outline-style: solid;
+  outline-offset: 10px;
+  outline-width: thick;
+  outline-color: blue;
+}
+
+#shirt {
+  margin-top: 30px;
+  margin-right: 70px;
+  border-radius: 10px;
+  height: 300px;
+  float: right;
+  outline-style: solid;
+  outline-offset: 10px;
+  outline-width: thick;
+  outline-color: blue;
 }
 
 legend {
@@ -72,33 +125,9 @@ legend {
   outline-color: black;
 }
 
-#nameAndEmail {
+#family {
+  margin-left: 20px;
+  height: 400px;
+  float:right;
+  border-radius: 10px;
 }
-
-#name {
-
-}
-
-#email {
-
-}
-
-/*h1 {
-  color: pink;
-}
-
-h6 {
-  color: orange;
-}
-
-h11 {
-  color: green;
-}
-
-h16 {
-  color: blue;
-}
-
-h21 {
-  color: purple;
-}*/
